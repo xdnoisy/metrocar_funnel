@@ -1,0 +1,26 @@
+to create a parameter changing grom user to rides funnel in single butoon.
+
+step 1: first create a parameter 
+value 1 - display user-level granularity
+value 2 - display ride-level granularity
+
+show the parameter on the worksheet
+change the filter to "single value list" from drop down menu.
+
+step 2 : create a calculated field
+
+cal.field name : "p.user or rides"
+
+  calculation:
+CASE [choose users or rides]
+WHEN 1 THEN SUM([Users])
+WHEN 2 THEN SUM([mc.rides_funnel].[Rides])
+END
+
+next step 3:adding them to the worksheet
+
+add "funnel" to rows
+  and then add created cal.field "p.user or rides" to colomns.
+
+now when you select from single value list, funnel will change from user to ride in the same sheet.  
+  
